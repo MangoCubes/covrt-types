@@ -1,4 +1,4 @@
-export enum IDType{
+export enum DataType{
 	Vault,
 	Item,
 	Field,
@@ -7,13 +7,13 @@ export enum IDType{
 	Group
 }
 
-export type DataID<T extends IDType> = string & {__name: T};
+export type DataID<T extends DataType> = string & {__name: T};
 
-export type VaultID = DataID<IDType.Vault>;
-export type ItemID = DataID<IDType.Item>;
-export type FieldID = DataID<IDType.Field>;
-export type UserID = DataID<IDType.User>;
-export type LogID = DataID<IDType.Log>;
-export type GroupID = DataID<IDType.Group>;
+export type VaultID = DataID<DataType.Vault>;
+export type ItemID = DataID<DataType.Item>;
+export type FieldID = DataID<DataType.Field>;
+export type UserID = DataID<DataType.User>;
+export type LogID = DataID<DataType.Log>;
+export type GroupID = DataID<DataType.Group>;
 
-export type AnyID = DataID<IDType>;
+export type AnyID = DataID<DataType>;
