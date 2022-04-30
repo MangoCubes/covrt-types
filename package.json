@@ -1,4 +1,11 @@
 {
+  "name": "covrt-types",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": "https://github.com/MangoCubes/covrt-types.git",
+  "author": "MangoCubes <10383115+MangoCubes@users.noreply.github.com>",
+  "license": "MIT",
   "dependencies": {
     "bson": "^4.6.3"
   }

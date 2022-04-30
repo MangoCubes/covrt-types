@@ -4,7 +4,7 @@ export enum PubKeyType{
 	Group = 'Group',
 }
 
-export interface PubKey<T extends PubKeyType>{
+export type PubKey<T extends PubKeyType> = {
 	type: T,
 	data: Binary;
 }

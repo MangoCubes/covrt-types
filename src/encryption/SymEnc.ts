@@ -7,7 +7,7 @@ export enum SymEncType{
 	ItemKey,
 }
 
-export interface SymEnc<T extends SymEncType>{
+export type SymEnc<T extends SymEncType> = {
 	iv: Binary;
 	data: Binary;
 	use: T;
