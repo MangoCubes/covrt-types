@@ -5,6 +5,9 @@ export enum SymEncType{
 	ItemData,
 
 	ItemKey,
+	SymKey,
+	UserPrivKey,
+	ContPrivKey
 }
 
 export type SymEnc<T extends SymEncType> = {
