@@ -1,7 +1,8 @@
 import { Binary } from "bson";
 
 export enum PubKeyType{
-	Group = 'Group',
+	Group,
+	User
 }
 
 export type PubKey<T extends PubKeyType> = {
