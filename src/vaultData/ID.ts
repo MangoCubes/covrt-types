@@ -1,10 +1,19 @@
-import { Branded } from "../general/Branded";
+export enum IDType{
+	Vault,
+	Item,
+	Field,
+	User,
+	Log,
+	Group
+}
 
-export type VaultID = Branded<string, 'VaultID'>;
-export type ItemID = Branded<string, 'ItemID'>;
-export type FieldID = Branded<string, 'FieldID'>;
-export type UserID = Branded<string, 'UserID'>;
-export type LogID = Branded<string, 'LogID'>;
-export type GroupID = Branded<string, 'GroupID'>;
+export type DataID<T extends IDType> = string & {__name: T};
 
-export type DataID = VaultID | ItemID | FieldID | UserID | LogID | GroupID;
+export type VaultID = DataID<IDType.Vault>;
+export type ItemID = DataID<IDType.Item>;
+export type FieldID = DataID<IDType.Field>;
+export type UserID = DataID<IDType.User>;
+export type LogID = DataID<IDType.Log>;
+export type GroupID = DataID<IDType.Group>;
+
+export type AnyID = DataID<IDType>;

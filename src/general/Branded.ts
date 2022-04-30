@@ -1,1 +1,0 @@
-export type Branded<T, N extends string> = T & {__name: N};
