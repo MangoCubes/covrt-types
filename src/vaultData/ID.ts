@@ -4,7 +4,8 @@ export enum DataType{
 	Field,
 	User,
 	Log,
-	Group
+	Group,
+	Container
 }
 
 export type DataID<T extends DataType> = string & {__name: T};
@@ -15,5 +16,6 @@ export type FieldID = DataID<DataType.Field>;
 export type UserID = DataID<DataType.User>;
 export type LogID = DataID<DataType.Log>;
 export type GroupID = DataID<DataType.Group>;
+export type ContID = DataID<DataType.Container>;
 
 export type AnyID = DataID<DataType>;
