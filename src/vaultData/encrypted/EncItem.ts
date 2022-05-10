@@ -2,8 +2,7 @@ import { SymEnc, SymEncType } from "../../encryption/SymEnc";
 import { ItemID } from "../ID";
 
 export type EncItem = {
-	key: ItemID;
+	id: ItemID;
 	data: SymEnc<SymEncType.ItemData>;
-	folder: ItemID | null;
 	encKey: SymEnc<SymEncType.ItemKey>;
 }

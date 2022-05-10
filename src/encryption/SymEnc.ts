@@ -5,7 +5,10 @@ export enum SymEncType{
 	ItemData,
 
 	ItemKey,
-	SymKey,
+	UserSymKey,
+	GroupSymKey,
+	ContSymKey,
+
 	UserPrivKey,
 	GroupPrivKey,
 	ContPrivKey

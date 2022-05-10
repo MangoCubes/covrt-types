@@ -1,8 +1,7 @@
 import { SymEnc, SymEncType } from "../../encryption/SymEnc";
-import { FieldID, ItemID } from "../ID";
+import { FieldID } from "../ID";
 
 export type EncField = {
-    key: FieldID;
+    id: FieldID;
     data: SymEnc<SymEncType.FieldData>;
-	item: ItemID;
 }
