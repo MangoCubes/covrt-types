@@ -1,8 +1,10 @@
 import { ContID, VaultID } from "../ID";
 
-export type Vault = {
+type Vault = {
 	id: VaultID;
-	isPrivate: boolean;
 	name: string;
 	containers: ContID[];
 }
+
+export type PrivateVault = Vault & {isPrivate: true};
+export type PublicVault = Vault & {isPrivate: false};
