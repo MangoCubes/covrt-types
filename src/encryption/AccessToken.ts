@@ -1,0 +1,1 @@
+export type AccessToken = string & {__name: 'AccessToken'};

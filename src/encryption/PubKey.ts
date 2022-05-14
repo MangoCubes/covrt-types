@@ -5,7 +5,4 @@ export enum PubKeyType{
 	User
 }
 
-export type PubKey<T extends PubKeyType> = {
-	type: T,
-	data: Binary;
-}
+export type ExportedPubKey<T extends PubKeyType> = Binary & {__type: T};
