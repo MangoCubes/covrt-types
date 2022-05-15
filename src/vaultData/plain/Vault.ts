@@ -1,7 +1,7 @@
 import { ContID, VaultID } from "../ID";
 
 type Vault = {
-	id: VaultID;
+	vid: VaultID;
 	name: string;
 	containers: ContID[];
 }
