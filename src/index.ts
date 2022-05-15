@@ -1,11 +1,19 @@
-export * from './vaultData/ID';
-export * from './encryption/VerificationKey'
+export * from './encryption/AccessToken';
+export * from './encryption/EncKeyPair';
+export * from './encryption/EncUserData';
 export * from './encryption/PubKey';
 export * from './encryption/SymEnc';
-export * from './encryption/EncKeyPair';
-export * from './vaultData/plain/Vault';
-export * from './encryption/EncUserData';
-export * from './encryption/AccessToken';
+export * from './encryption/VerificationKey';
+
+export * from './vaultData/encrypted/EncContainer';
+export * from './vaultData/encrypted/EncData';
+export * from './vaultData/encrypted/EncField';
+export * from './vaultData/encrypted/EncItem';
+
+export * from './vaultData/log/Log';
+
+export * from './vaultData/plain/GroupData';
 export * from './vaultData/plain/Permission';
 export * from './vaultData/plain/Vault';
-export * from './vaultData/plain/GroupData';
+
+export * from './vaultData/ID';

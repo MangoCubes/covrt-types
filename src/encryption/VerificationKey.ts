@@ -1,6 +1,3 @@
 import { Binary } from "bson";
 
-export type VerificationKey = {
-	type: 'Verification';
-	data: Binary;
-}
+export type VerificationKey = Binary & {__type: 'Verification'};

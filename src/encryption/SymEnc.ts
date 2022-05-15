@@ -14,8 +14,4 @@ export enum SymEncType{
 	ContPrivKey
 }
 
-export type SymEnc<T extends SymEncType> = {
-	iv: Binary;
-	data: Binary;
-	use: T;
-}
+export type SymEnc<T extends SymEncType> = Binary & {__use: T};
