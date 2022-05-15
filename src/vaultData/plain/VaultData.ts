@@ -1,4 +1,4 @@
-import { VaultID } from "./ID"
+import { VaultID } from "../ID"
 
 export type VaultData = {
     vid: VaultID;

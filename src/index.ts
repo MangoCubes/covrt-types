@@ -6,4 +6,5 @@ export * from './encryption/EncKeyPair';
 export * from './vaultData/plain/Vault';
 export * from './encryption/EncUserData';
 export * from './encryption/AccessToken';
-export * from './vaultData/Permission'
+export * from './vaultData/plain/Permission';
+export * from './vaultData/plain/VaultData';

@@ -1,4 +1,4 @@
-import { AnyID } from "./ID";
+import { AnyID } from "../ID";
 
 export enum PermissionText{
     
