@@ -1,10 +1,11 @@
 import { ContID, VaultID } from "../ID";
 
-type Vault = {
+type VaultTemplate = {
 	vid: VaultID;
 	name: string;
 	containers: ContID[];
 }
 
-export type PrivateVault = Vault & {isPrivate: true};
-export type PublicVault = Vault & {isPrivate: false};
+export type PrivateVault = VaultTemplate & {isPrivate: true};
+export type PublicVault = VaultTemplate & {isPrivate: false};
+export type Vault = PrivateVault | PublicVault;
