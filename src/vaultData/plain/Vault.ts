@@ -1,9 +1,8 @@
-import { ContID, VaultID } from "../ID";
+import { VaultID } from "../ID";
 
 type VaultTemplate = {
 	vid: VaultID;
 	name: string;
-	containers: ContID[];
 }
 
 export type PrivateVault = VaultTemplate & {isPrivate: true};
