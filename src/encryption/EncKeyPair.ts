@@ -11,4 +11,9 @@ export type EncGroupKeyPair = {
 	pub: ExportedPubKey<PubKeyType.Group>;
 }
 
-export type EncKeyPair = EncUserKeyPair | EncGroupKeyPair;
+export type EncContKeyPair = {
+	priv: SymEnc<SymEncType.ContPrivKey>;
+	pub: ExportedPubKey<PubKeyType.Cont>;
+}
+
+export type EncKeyPair = EncUserKeyPair | EncGroupKeyPair | EncContKeyPair;
