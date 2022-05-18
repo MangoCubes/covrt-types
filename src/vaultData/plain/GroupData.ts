@@ -3,13 +3,11 @@ import { SymEnc, SymEncType } from '../../encryption/SymEnc';
 import { ContID, GroupID, UserID, VaultID } from '../ID';
 import { Permission } from './Permission';
 
-export type GroupData = {
+type BaseGroupData = {
     gid: GroupID;
     name: string;
     vault: VaultID;
-    canAccess: ContID[];
     permissions: Permission[];
-    users: UserID[];
 }
 
 export type GroupCrypto = {
@@ -17,4 +15,10 @@ export type GroupCrypto = {
     keyPair: EncGroupKeyPair;
 }
 
-export type FullGroupData = GroupData & GroupCrypto;
+export type GroupAdminData = {
+	users: UserID[];
+}
+
+export type GroupData = BaseGroupData & GroupCrypto & {canAccess: ContID[]};
+
+export type FullGroupData = BaseGroupData & GroupCrypto & GroupAdminData;
