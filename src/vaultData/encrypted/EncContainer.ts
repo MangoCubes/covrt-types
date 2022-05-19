@@ -1,20 +1,21 @@
-import { EncContKeyPair } from "../../encryption/EncKeyPair";
+import { EncContainerKeyPair } from "../../encryption/EncKeyPair";
 import { SymEnc, SymEncType } from "../../encryption/SymEnc";
-import { ContID, VaultID } from "../ID";
+import { ContainerID, VaultID } from "../ID";
 import { EncField } from "./EncField";
 import { EncItem } from "./EncItem";
 
-type EncContainerBase = {
-	cid: ContID;
+export type ContainerBase = {
+	cid: ContainerID;
+	name: string;
 	vault: VaultID;
 }
 
 type EncContainerCrypto = {
-	symKey: SymEnc<SymEncType.ContSymKey>;
-    keyPair: EncContKeyPair;
+	symKey: SymEnc<SymEncType.ContainerSymKey>;
+    keyPair: EncContainerKeyPair;
 }
 
-export type EncContainer = EncContainerBase & EncContainerCrypto;
+export type EncContainer = ContainerBase & EncContainerCrypto;
 
 export type EncContainerData = {
 	fields: EncField[];

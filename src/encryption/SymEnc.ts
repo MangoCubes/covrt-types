@@ -7,11 +7,11 @@ export enum SymEncType{
 	ItemKey,
 	UserSymKey,
 	GroupSymKey,
-	ContSymKey,
+	ContainerSymKey,
 
 	UserPrivKey,
 	GroupPrivKey,
-	ContPrivKey
+	ContainerPrivKey
 }
 
 export type SymEnc<T extends SymEncType> = Binary & {__use: T};

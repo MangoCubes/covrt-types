@@ -20,6 +20,6 @@ export type TempFieldID = DataID<DataType.TempField>;
 export type UserID = DataID<DataType.User>;
 export type LogID = DataID<DataType.Log>;
 export type GroupID = DataID<DataType.Group>;
-export type ContID = DataID<DataType.Container>;
+export type ContainerID = DataID<DataType.Container>;
 
 export type AnyID = DataID<DataType>;

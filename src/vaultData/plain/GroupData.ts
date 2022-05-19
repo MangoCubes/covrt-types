@@ -1,6 +1,6 @@
 import { EncGroupKeyPair } from '../../encryption/EncKeyPair';
 import { SymEnc, SymEncType } from '../../encryption/SymEnc';
-import { ContID, GroupID, UserID, VaultID } from '../ID';
+import { ContainerID, GroupID, UserID, VaultID } from '../ID';
 import { Permission } from './Permission';
 
 type BaseGroupData = {
@@ -19,6 +19,6 @@ export type GroupAdminData = {
 	users: UserID[];
 }
 
-export type GroupData = BaseGroupData & GroupCrypto & {canAccess: ContID[]};
+export type GroupData = BaseGroupData & GroupCrypto & {canAccess: ContainerID[]};
 
 export type FullGroupData = BaseGroupData & GroupCrypto & GroupAdminData;
