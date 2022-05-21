@@ -1,9 +1,4 @@
 import { Binary } from "bson";
+import { KeyPairType } from "./EncKeyPair";
 
-export enum PubKeyType{
-	Group,
-	User,
-	Container
-}
-
-export type ExportedPubKey<T extends PubKeyType> = Binary & {__type: T};
+export type ExportedPubKey<T extends KeyPairType> = Binary & {__type: T};
