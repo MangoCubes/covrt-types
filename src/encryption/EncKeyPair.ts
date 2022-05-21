@@ -7,19 +7,13 @@ export enum KeyPairType {
 	Container
 }
 
-export type EncUserKeyPair = {
-	priv: SymEnc<SymEncType.UserPrivKey>;
-	pub: ExportedPubKey<KeyPairType.User>;
+export type EncPrivKeyMap = {
+	[KeyPairType.User]: SymEncType.UserPrivKey;
+	[KeyPairType.Group]: SymEncType.GroupPrivKey;
+	[KeyPairType.Container]: SymEncType.ContainerPrivKey;
 }
 
-export type EncGroupKeyPair = {
-	priv: SymEnc<SymEncType.GroupPrivKey>;
-	pub: ExportedPubKey<KeyPairType.Group>;
+export type EncKeyPair<T extends KeyPairType> = {
+	priv: SymEnc<EncPrivKeyMap[T]>;
+	pub: ExportedPubKey<T>;
 }
-
-export type EncContainerKeyPair = {
-	priv: SymEnc<SymEncType.ContainerPrivKey>;
-	pub: ExportedPubKey<KeyPairType.Container>;
-}
-
-export type EncKeyPair = EncUserKeyPair | EncGroupKeyPair | EncContainerKeyPair;
