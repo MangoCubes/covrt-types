@@ -1,4 +1,4 @@
-import { EncGroupKeyPair } from '../../encryption/EncKeyPair';
+import { EncKeyPair, KeyPairType } from '../../encryption/EncKeyPair';
 import { SymEnc, SymEncType } from '../../encryption/SymEnc';
 import { ContainerID, GroupID, UserID, VaultID } from '../ID';
 import { Permission } from './Permission';
@@ -12,7 +12,7 @@ type BaseGroupData = {
 
 export type GroupCrypto = {
     symKey: SymEnc<SymEncType.GroupSymKey>;
-    keyPair: EncGroupKeyPair;
+    keyPair: EncKeyPair<KeyPairType.Group>;
 }
 
 export type GroupAdminData = {
