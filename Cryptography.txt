@@ -1,0 +1,44 @@
+Notation:
+ - V: Vault
+ - C: Container
+ - G: Group
+ - U: User
+ - I: Item
+ - F: Field
+   - V1: Instance of a vault
+ - Sym: Symmetric key
+   - Dec: Decryption key, only generated from user secrets and is never sent to server
+ - Pub/Priv: Public/Private key
+   - U1.Sym: Symmetric key of user 1
+ - Ver: Verification key, only generated from user secrets and sent to server to authenticate
+ - SE(Data, *.Sym): Symmetric encryption
+ - AE(Data, *.Pub): Asymmetric encryption
+
+General specifications
+ - A vault has no cryptographical features, and only serves to group multiple groups and containers
+ - A container has one symmetric key that allows access to it, and can decrypt a key pair associated with it
+   - Same goes for a group and each user
+ - An item has a symmetric key that can decrypt it
+ - A field is encrypted with the item key it is part of
+
+Constraints
+ - A vault must have at least one group and at least one container
+ - A group or a container can only be associated with only one vault
+ - A container must be associated with at least one group
+
+Cryptography:
+ - Registration
+   - U1 generates the following locally:
+     - U1.Ver
+     - U1.Dec
+     - U1.Sym
+     - U1.Pub/Priv
+   - U1 sends the following to the server:
+     - Email
+     - U1.Ver
+     - U1.Pub
+     - SE(U1.Sym, U1.Dec)
+     - SE(U1.Priv, U1.Sym)
+ - Creating a vault
+   - U1 generates the following locally:
+     - C1.Sym
