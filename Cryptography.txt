@@ -39,6 +39,31 @@ Cryptography:
      - U1.Pub
      - SE(U1.Sym, U1.Dec)
      - SE(U1.Priv, U1.Sym)
+ - Login
+   - U1 generates the following:
+     - U1.Ver
+     - U1.Dec
+   - U1 then sends U1.Ver to the server to authenticate, and receive the following from the server:
+     - U1.Pub
+     - SE(U1.Sym, U1.Dec)
+     - SE(U1.Priv, U1.Sym)
+   - U1 has U1.Dec, so U1 can recover U1.Sym, and U1.Priv
  - Creating a vault
    - U1 generates the following locally:
      - C1.Sym
+     - C1.Priv/Pub
+     - G1.Sym
+     - G1.Pub/Priv
+   - U1 then sends these to the server:
+     - AE(C1.Sym, G1.Pub)
+     - AE(G1.Sym, U1.Pub)
+     - SE(C1.Priv, C1.Sym)
+     - SE(G1.Priv, G1.Sym)
+     - C1.Pub
+     - G1.Pub
+ - Accessing a group
+   - U1 receives the following from the server:
+     - G1.Pub
+     - AE(G1.Sym, U1.Pub)
+     - SE(G1.Priv, G1.Sym)
+   - U1 has U1.Pub/Priv from logging in, and therefore can get G1.Sym to access the group, and the associated key pair

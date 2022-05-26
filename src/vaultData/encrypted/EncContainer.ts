@@ -1,5 +1,5 @@
+import { AsymEnc, AsymEncType } from "../../encryption/AsymEnc";
 import { EncKeyPair, KeyPairType } from "../../encryption/EncKeyPair";
-import { SymEnc, SymEncType } from "../../encryption/SymEnc";
 import { ContainerID, VaultID } from "../ID";
 import { EncField } from "./EncField";
 import { EncItem } from "./EncItem";
@@ -11,7 +11,7 @@ export type ContainerBase = {
 }
 
 type EncContainerCrypto = {
-	symKey: SymEnc<SymEncType.ContainerSymKey>;
+	symKey: AsymEnc<AsymEncType.ContainerSymKey>;
     keyPair: EncKeyPair<KeyPairType.Container>;
 }
 
