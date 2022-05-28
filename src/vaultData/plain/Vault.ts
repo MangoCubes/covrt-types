@@ -1,8 +1,9 @@
-import { VaultID } from "../ID";
+import { GroupID, VaultID } from "../ID";
 
 type VaultTemplate = {
 	vid: VaultID;
 	name: string;
+	defaultGroup: GroupID;
 }
 
 export type PrivateVault = VaultTemplate & {isPrivate: true};
