@@ -6,6 +6,10 @@ type VaultTemplate = {
 	defaultGroup: GroupID;
 }
 
+type PublicVaultData = {
+	owner: string;
+}
+
 export type PrivateVault = VaultTemplate & {isPrivate: true};
-export type PublicVault = VaultTemplate & {isPrivate: false};
+export type PublicVault = VaultTemplate & {isPrivate: false} & PublicVaultData;
 export type Vault = PrivateVault | PublicVault;

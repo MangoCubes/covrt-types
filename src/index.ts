@@ -1,4 +1,5 @@
 export * from './encryption/AccessToken';
+export * from './encryption/AsymEnc';
 export * from './encryption/EncKeyPair';
 export * from './encryption/EncUserData';
 export * from './encryption/PubKey';
