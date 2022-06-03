@@ -21,3 +21,5 @@ export type EncContainerData = {
 	fields: EncField[];
 	items: EncItem[];
 }
+
+export type FullEncContainerData = EncContainer & EncContainerData;

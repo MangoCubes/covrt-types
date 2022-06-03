@@ -3,7 +3,7 @@ import { GroupID, VaultID } from "../ID";
 type VaultTemplate = {
 	vid: VaultID;
 	name: string;
-	defaultGroup: GroupID;
+	group: GroupID;
 }
 
 type PublicVaultData = {

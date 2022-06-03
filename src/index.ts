@@ -13,7 +13,7 @@ export * from './vaultData/encrypted/EncItem';
 
 export * from './vaultData/log/Log';
 
-export * from './vaultData/plain/GroupData';
+export * from './vaultData/encrypted/GroupData';
 export * from './vaultData/plain/Permission';
 export * from './vaultData/plain/Vault';
 
