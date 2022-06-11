@@ -14,17 +14,20 @@ Notation:
  - SE(Data, *.Sym): Symmetric encryption
  - AE(Data, *.Pub): Asymmetric encryption
 
-General specifications
+Abstract specifications
  - A vault has no cryptographical features, and only serves to group multiple groups and containers
  - A container has one symmetric key that allows access to it, and can decrypt a key pair associated with it
    - Same goes for a group and each user
  - An item has a symmetric key that can decrypt it
  - A field is encrypted with the item key it is part of
+ - Groups control which user can access which container, and determines which group administrates which
 
 Constraints
  - A vault must have at least one group and at least one container
  - A group or a container can only be associated with only one vault
  - A container must be associated with at least one group
+ - A user must be associated with only one group
+ - A group is managed by only one parent group, and that parent group is the one that created this group
 
 Cryptography:
  - Registration
@@ -67,3 +70,30 @@ Cryptography:
      - AE(G1.Sym, U1.Pub)
      - SE(G1.Priv, G1.Sym)
    - U1 has U1.Pub/Priv from logging in, and therefore can get G1.Sym to access the group, and the associated key pair
+ - Creating a group
+   - U1, as a member of the group G1, has the following:
+     - G1.Sym
+	 - G1.Pub/Priv
+   - U1 generates the following:
+     - G2.Sym
+     - G2.Pub/Priv
+   - U1 then sends the following to the server:
+     - SE(G2.Sym, G1.Sym): This indicates that G1 manages G2, and any member of G1 has access to G2. This allows inviting user to a group they are not a member of.
+     - SE(G2.Priv, G2.Sym)
+     - G2.Pub
+ - Invite user to the group they are part of
+   - U1, as a member of the group G1, has the following:
+     - G1.Sym
+   - U1 can query server to fetch U2.Pub from the server
+   - U1 then sends the following to thr server:
+     - AE(G1.Sym, U2.Pub)
+ - Invite user to a group they manage
+   - U1 is in G1, which manages G2, and wishes to invite user U2 to group G2
+   - U1, as a member of the group G1, has the following:
+     - G1.Sym
+   - U1 queries the server to fetch the following:
+     - U2.Pub
+	 - SE(G2.Sym, G1.Sym)
+   - U1 uses G1.Sym to recover G2.Sym
+   - U1 then sends the following to the server:
+     - AE(G2.Sym, U2.Pub)
