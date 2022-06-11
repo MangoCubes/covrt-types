@@ -1,10 +1,15 @@
-import { AnyID } from "../ID";
-
-export enum PermissionText{
-    
+/**
+ * Permission controls what user can do
+ * This should only be used for types that cannot be controlled cryptographically (Such as inviting user)
+ */
+export enum PermType{
+	CreateItem,
+	ViewLog,
+	ViewDeleted,
+	Invite,
+	CreateGroup,
 }
 
 export type Permission = {
-    action: string;
-    target: AnyID | null;
+    action: PermType;
 }
