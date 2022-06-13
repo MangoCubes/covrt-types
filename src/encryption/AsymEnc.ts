@@ -6,9 +6,16 @@ export enum AsymEncType{
 	ContainerSymKey,
 }
 
-export type AsymEncMap = {
-	[AsymEncType.GroupSymKey]: KeyPairType.User;
-	[AsymEncType.ContainerSymKey]: KeyPairType.Group;
+/**
+ * Key represents a key pair type.
+ * 
+ * Value represents what this key pair can decrypt.
+ * 
+ * (X can decrypt Y)
+ */
+export type AsymDecMap = {
+	[KeyPairType.User]: AsymEncType.GroupSymKey;
+	[KeyPairType.Group]: AsymEncType.ContainerSymKey;
 }
 
 export type AsymEnc<T extends AsymEncType> = Binary & {__use: T};
