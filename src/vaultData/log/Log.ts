@@ -2,13 +2,13 @@ import { EncData } from "../encrypted/EncData";
 import { DataID, DataType, LogID, UserID } from "../ID";
 
 export enum FieldAction{
-	Created,
+	Created = 1,
 	Updated,
 	Deleted
 }
 
 export enum ItemAction{
-	Created,
+	Created = 1,
 	Updated,
 	Deleted,
 	Moved,
@@ -16,7 +16,7 @@ export enum ItemAction{
 }
 
 export enum GroupAction{
-	Created,
+	Created = 1,
 	Updated,
 	Deleted,
 	UserAdded,

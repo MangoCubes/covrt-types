@@ -2,7 +2,7 @@ import { ExportedPubKey } from "./PubKey";
 import { SymEnc, SymEncType } from "./SymEnc";
 
 export enum KeyPairType {
-	User,
+	User = 1,
 	Group,
 	Container
 }

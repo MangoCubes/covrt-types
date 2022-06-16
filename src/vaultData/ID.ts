@@ -1,5 +1,5 @@
 export enum DataType{
-	Vault,
+	Vault = 1,
 	Item,
 	TempItem,
 	Field,

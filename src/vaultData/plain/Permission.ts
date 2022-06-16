@@ -3,7 +3,7 @@
  * This should only be used for types that cannot be controlled cryptographically (Such as inviting user)
  */
 export enum PermType{
-	CreateItem,
+	CreateItem = 1,
 	ViewLog,
 	ViewDeleted,
 	Invite,

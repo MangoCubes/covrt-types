@@ -2,7 +2,7 @@ import { Binary } from "bson";
 import { KeyPairType } from "./EncKeyPair";
 
 export enum AsymEncType{
-	GroupSymKey,
+	GroupSymKey = 1,
 	ContainerSymKey,
 }
 

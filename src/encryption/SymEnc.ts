@@ -1,7 +1,7 @@
 import { Binary } from "bson";
 
 export enum SymEncType{
-	FieldData,
+	FieldData = 1,
 	ItemData,
 
 	ItemKey,

@@ -19,6 +19,6 @@ export type GroupAdminData = {
 	users: UserID[];
 }
 
-export type GroupData = BaseGroupData & GroupCrypto & {canAccess: ContainerID[]};
+export type GroupData = BaseGroupData & GroupCrypto;
 
-export type FullGroupData = BaseGroupData & GroupCrypto & GroupAdminData;
+export type FullGroupData = GroupData & GroupAdminData;
