@@ -1,9 +1,7 @@
 export enum DataType{
 	Vault = 1,
 	Item,
-	TempItem,
 	Field,
-	TempField,
 	User,
 	Log,
 	Group,
@@ -14,9 +12,7 @@ export type DataID<T extends DataType> = string & {__name: T};
 
 export type VaultID = DataID<DataType.Vault>;
 export type ItemID = DataID<DataType.Item>;
-export type TempItemID = DataID<DataType.TempItem>;
 export type FieldID = DataID<DataType.Field>;
-export type TempFieldID = DataID<DataType.TempField>;
 export type UserID = DataID<DataType.User>;
 export type LogID = DataID<DataType.Log>;
 export type GroupID = DataID<DataType.Group>;

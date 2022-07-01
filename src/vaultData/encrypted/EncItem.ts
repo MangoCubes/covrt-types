@@ -1,6 +1,6 @@
 import { PartialPartial } from "../../base/PartialPartial";
 import { SymEnc, SymEncType } from "../../encryption/SymEnc";
-import { ItemID, TempItemID } from "../ID";
+import { ItemID } from "../ID";
 
 export type EncItemDelta = PartialPartial<EncItem, 'id', never>;
 
@@ -10,4 +10,3 @@ export type EncItemData = {
 }
 
 export type EncItem = EncItemData & {id: ItemID};
-export type NewEncItem = EncItemData & {id: TempItemID};
