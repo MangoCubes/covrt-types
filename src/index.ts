@@ -10,10 +10,12 @@ export * from './vaultData/encrypted/EncContainer';
 export * from './vaultData/encrypted/EncData';
 export * from './vaultData/encrypted/EncField';
 export * from './vaultData/encrypted/EncItem';
+export * from './vaultData/encrypted/EncVault';
+export * from './vaultData/encrypted/EncField';
+export * from './vaultData/encrypted/EncGroup';
 
 export * from './vaultData/log/Log';
 
-export * from './vaultData/encrypted/GroupData';
 export * from './vaultData/plain/Permission';
 export * from './vaultData/plain/Vault';
 
