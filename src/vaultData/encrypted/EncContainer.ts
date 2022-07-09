@@ -8,10 +8,10 @@ import { EncItem } from "./EncItem";
 export type ContainerBase = {
 	cid: ContainerID;
 	vault: VaultID;
-	data: SymEnc<SymEncType.ContainerInfo>;
 }
 
 type EncContainerCrypto = {
+	data: SymEnc<SymEncType.ContainerInfo>;
 	symKey: AsymEnc<AsymEncType.ContainerSymKey>;
 	keyPair: EncKeyPair<KeyPairType.Container>;
 }
