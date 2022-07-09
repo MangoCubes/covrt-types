@@ -7,11 +7,9 @@ export * from './encryption/SymEnc';
 export * from './encryption/VerificationKey';
 
 export * from './vaultData/encrypted/EncContainer';
-export * from './vaultData/encrypted/EncContainerInfo';
 export * from './vaultData/encrypted/EncData';
 export * from './vaultData/encrypted/EncField';
 export * from './vaultData/encrypted/EncGroup';
-export * from './vaultData/encrypted/EncGroupInfo';
 export * from './vaultData/encrypted/EncItem';
 export * from './vaultData/encrypted/EncVault';
 
