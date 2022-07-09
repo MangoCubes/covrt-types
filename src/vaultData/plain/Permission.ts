@@ -11,5 +11,5 @@ export enum PermType{
 }
 
 export type Permission = {
-    action: PermType;
+	action: PermType;
 }

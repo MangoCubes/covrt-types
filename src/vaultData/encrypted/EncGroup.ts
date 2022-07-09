@@ -2,17 +2,18 @@ import { AsymEnc, AsymEncType } from '../../encryption/AsymEnc';
 import { EncKeyPair, KeyPairType } from '../../encryption/EncKeyPair';
 import { GroupID, UserID, VaultID } from '../ID';
 import { Permission } from '../plain/Permission';
+import { EncGroupInfo } from './EncGroupInfo';
 
 type BaseGroupData = {
-    gid: GroupID;
-    name: string;
-    vault: VaultID;
-    permissions: Permission[];
+	gid: GroupID;
+	vault: VaultID;
+	permissions: Permission[];
+	info: EncGroupInfo;
 }
 
 export type GroupCrypto = {
-    symKey: AsymEnc<AsymEncType.GroupSymKey>;
-    keyPair: EncKeyPair<KeyPairType.Group>;
+	symKey: AsymEnc<AsymEncType.GroupSymKey>;
+	keyPair: EncKeyPair<KeyPairType.Group>;
 }
 
 export type GroupAdminData = {

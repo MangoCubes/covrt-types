@@ -6,13 +6,12 @@ import { EncItem } from "./EncItem";
 
 export type ContainerBase = {
 	cid: ContainerID;
-	name: string;
 	vault: VaultID;
 }
 
 type EncContainerCrypto = {
 	symKey: AsymEnc<AsymEncType.ContainerSymKey>;
-    keyPair: EncKeyPair<KeyPairType.Container>;
+	keyPair: EncKeyPair<KeyPairType.Container>;
 }
 
 export type EncContainer = ContainerBase & EncContainerCrypto;
