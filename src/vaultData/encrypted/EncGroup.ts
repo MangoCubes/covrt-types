@@ -4,10 +4,10 @@ import { SymEnc, SymEncType } from '../../encryption/SymEnc';
 import { GroupID, UserID, VaultID } from '../ID';
 import { Permission } from '../plain/Permission';
 
-type BaseGroupData = {
+export type BaseGroupData = {
 	gid: GroupID;
 	vault: VaultID;
-	permissions: Permission[];
+	permissions: Permission;
 }
 
 export type GroupCrypto = {

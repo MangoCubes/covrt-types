@@ -50,31 +50,22 @@ export enum PermType{
 	ViewContainerLog,
 
 	/**
-	 * Invite users to a specified group, naturally limited to groups user is a parent of
+	 * Invite users to a specified group, naturally limited to groups user's group and its children
 	 */
 	Invite
 }
+type Targeted = PermType.ViewItemLog | PermType.ViewContainerLog;
 
-type GroupTargeted = PermType.ViewGroupLog | PermType.Invite;
-
-type ContainerTargeted = PermType.ViewItemLog | PermType.ViewContainerLog;
-
-type Targeted = GroupTargeted | ContainerTargeted;
-
-type PermissionWithoutTarget = {
+export type PermissionWithoutTarget = {
 	action: Exclude<PermType, Targeted>;
 }
 
-type PermissionWithContainerTarget = {
-	action: ContainerTargeted;
+export type PermissionWithTarget = {
+	action: Targeted;
 	cid: ContainerID;
 }
 
-type PermissionWithGroupTarget = {
-	action: GroupTargeted;
-	gid: GroupID;
-}
-
-type PermissionWithTarget = PermissionWithContainerTarget | PermissionWithGroupTarget;
-
-export type Permission = PermissionWithoutTarget | PermissionWithTarget;
+export type Permission = {
+	group: PermissionWithoutTarget[];
+	container: PermissionWithTarget[];
+};
