@@ -8,12 +8,12 @@ export type BaseGroupData = {
 	gid: GroupID;
 	vault: VaultID;
 	permissions: Permission;
+	pubData: SymEnc<SymEncType.GroupPubInfo>;
 }
 
 export type GroupCrypto = {
 	vKey: SymEnc<SymEncType.VaultKey>;
-	pubData: SymEnc<SymEncType.GroupPubInfo>;
-	groupData: SymEnc<SymEncType.GroupInfo>;
+	data: SymEnc<SymEncType.GroupInfo>;
 	symKey: AsymEnc<AsymEncType.GroupSymKey>;
 	keyPair: EncKeyPair<KeyPairType.Group>;
 }
