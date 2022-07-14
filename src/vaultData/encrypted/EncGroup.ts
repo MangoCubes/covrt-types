@@ -11,7 +11,9 @@ export type BaseGroupData = {
 }
 
 export type GroupCrypto = {
-	data: SymEnc<SymEncType.GroupInfo>;
+	vKey: SymEnc<SymEncType.VaultKey>;
+	pubData: SymEnc<SymEncType.GroupPubInfo>;
+	groupData: SymEnc<SymEncType.GroupInfo>;
 	symKey: AsymEnc<AsymEncType.GroupSymKey>;
 	keyPair: EncKeyPair<KeyPairType.Group>;
 }
