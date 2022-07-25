@@ -1,4 +1,4 @@
-import { ContainerID, GroupID } from "../ID";
+import { ContainerID } from "../ID";
 
 /**
  * Permission controls what user can do
@@ -11,7 +11,7 @@ export enum PermType{
 	Admin = -1,
 
 	/**
-	 * Create and edit items
+	 * Create and edit items, limited to targeted containers
 	 */
 	EditItem = 1, 
 	/**
@@ -19,12 +19,12 @@ export enum PermType{
 	 */
 	EditGroup,
 	/**
-	 * Create and edit containers
+	 * Create and edit containers itself, not the contents
 	 */
 	EditContainer,
 
 	/**
-	 * Delete items from containers this group users can access
+	 * Delete items from containers this group users can access, limited to targeted containers
 	 */
 	DeleteItem,
 	/**
@@ -32,7 +32,7 @@ export enum PermType{
 	 */
 	DeleteGroup,
 	/**
-	 * Delete specified container, naturally limited to containers this group users can access
+	 * Delete containers, naturally limited to containers this group users can access
 	 */
 	DeleteContainer,
 
@@ -54,7 +54,7 @@ export enum PermType{
 	 */
 	Invite
 }
-type Targeted = PermType.ViewItemLog | PermType.ViewContainerLog;
+type Targeted = PermType.ViewItemLog | PermType.ViewContainerLog | PermType.EditItem | PermType.DeleteItem;
 
 export type PermissionWithoutTarget = {
 	action: Exclude<PermType, Targeted>;
