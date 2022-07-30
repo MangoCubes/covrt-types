@@ -18,10 +18,17 @@ export type GroupCrypto = {
 	keyPair: EncKeyPair<KeyPairType.Group>;
 }
 
+export type GroupAccessData = {
+	accessKey: SymEnc<SymEncType.GroupSymKey>;
+	parent: GroupID;
+}
+
 export type GroupAdminData = {
 	users: UserID[];
 }
 
 export type GroupData = BaseGroupData & GroupCrypto;
+
+export type GroupAccess = GroupData & GroupAccessData;
 
 export type FullGroupData = GroupData & GroupAdminData;

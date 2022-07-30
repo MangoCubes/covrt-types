@@ -6,6 +6,7 @@ export enum SymEncType{
 
 	ItemKey,
 	UserSymKey,
+	GroupSymKey, //To impersonate a group they have created
 	VaultKey,
 
 	UserPrivKey,
