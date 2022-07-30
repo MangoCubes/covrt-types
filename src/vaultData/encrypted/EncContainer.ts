@@ -1,13 +1,14 @@
 import { AsymEnc, AsymEncType } from "../../encryption/AsymEnc";
 import { EncKeyPair, KeyPairType } from "../../encryption/EncKeyPair";
 import { SymEnc, SymEncType } from "../../encryption/SymEnc";
-import { ContainerID, VaultID } from "../ID";
+import { ContainerID, GroupID, VaultID } from "../ID";
 import { EncField } from "./EncField";
 import { EncItem } from "./EncItem";
 
 export type ContainerBase = {
 	cid: ContainerID;
 	vault: VaultID;
+	owner: GroupID;
 }
 
 type EncContainerCrypto = {
