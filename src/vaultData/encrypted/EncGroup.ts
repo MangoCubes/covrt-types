@@ -14,7 +14,6 @@ export type BaseGroupData = {
 export type GroupCrypto = {
 	vKey: SymEnc<SymEncType.VaultKey>;
 	data: SymEnc<SymEncType.GroupInfo>;
-	symKey: AsymEnc<AsymEncType.GroupSymKey>;
 	keyPair: EncKeyPair<KeyPairType.Group>;
 }
 
@@ -28,6 +27,8 @@ export type GroupAdminData = {
 }
 
 export type GroupData = BaseGroupData & GroupCrypto;
+
+export type UserGroupData = GroupData & {symKey: AsymEnc<AsymEncType.GroupSymKey>};
 
 export type GroupAccess = GroupData & GroupAccessData;
 
