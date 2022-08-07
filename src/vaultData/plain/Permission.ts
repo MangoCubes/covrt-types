@@ -62,10 +62,9 @@ export type PermissionWithoutTarget = {
 
 export type PermissionWithTarget = {
 	action: Targeted;
-	cid: ContainerID;
 }
 
 export type Permission = {
 	group: PermissionWithoutTarget[];
-	container: PermissionWithTarget[];
+	container: {[cid: ContainerID]: PermissionWithTarget[]};
 };
