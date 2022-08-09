@@ -57,29 +57,9 @@ export enum PermType{
 export type Targeted = PermType.ViewItemLog | PermType.ViewContainerLog | PermType.EditItem | PermType.DeleteItem;
 export type Untargeted = Exclude<PermType, Targeted>;
 
-export type PermissionWithoutTarget = {
-	[PermType.Admin]: boolean;
-	[PermType.ViewGroupLog]: boolean;
-	[PermType.EditGroup]: boolean;
-	[PermType.EditContainer]: boolean;
-	[PermType.DeleteGroup]: boolean;
-	[PermType.DeleteContainer]: boolean;
-	[PermType.Invite]: boolean;
-}
+export type PermissionWithoutTarget = {[key in Untargeted]: boolean};
 
-export type PermissionWithTarget = {
-	[PermType.ViewItemLog]: boolean;
-	[PermType.ViewContainerLog]: boolean;
-	[PermType.EditItem]: boolean;
-	[PermType.DeleteItem]: boolean;
-}
-
-/**
- * Types used exclusively for making usre the map above is maintained properly
- */
-
-type Test<T extends Untargeted> = PermissionWithoutTarget[T];
-type Test2<T extends Targeted> = PermissionWithTarget[T];
+export type PermissionWithTarget = {[key in Targeted]: boolean};
 
 export type Permission = {
 	group: PermissionWithoutTarget;
