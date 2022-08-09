@@ -54,7 +54,8 @@ export enum PermType{
 	 */
 	Invite
 }
-type Targeted = PermType.ViewItemLog | PermType.ViewContainerLog | PermType.EditItem | PermType.DeleteItem;
+export type Targeted = PermType.ViewItemLog | PermType.ViewContainerLog | PermType.EditItem | PermType.DeleteItem;
+export type Untargeted = Exclude<PermType, Targeted>;
 
 export type PermissionWithoutTarget = {
 	[PermType.Admin]: boolean;
@@ -77,10 +78,10 @@ export type PermissionWithTarget = {
  * Types used exclusively for making usre the map above is maintained properly
  */
 
-type Test<T extends Exclude<PermType, Targeted>> = PermissionWithoutTarget[T];
+type Test<T extends Untargeted> = PermissionWithoutTarget[T];
 type Test2<T extends Targeted> = PermissionWithTarget[T];
 
 export type Permission = {
-	group: PermissionWithoutTarget[];
-	container: {[cid: ContainerID]: PermissionWithTarget[]};
+	group: PermissionWithoutTarget;
+	container: {[cid: ContainerID]: PermissionWithTarget};
 };
