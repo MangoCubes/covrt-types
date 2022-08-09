@@ -8,12 +8,12 @@ export enum PermType{
 	/**
 	 * Having this permission is equivalent to having all permissions listed below, and grants permission to rename and delete vault
 	 */
-	Admin = -1,
+	Admin,
 
 	/**
 	 * Create and edit items, limited to targeted containers
 	 */
-	EditItem = 1, 
+	EditItem, 
 	/**
 	 * Create and edit groups
 	 */
@@ -57,12 +57,28 @@ export enum PermType{
 type Targeted = PermType.ViewItemLog | PermType.ViewContainerLog | PermType.EditItem | PermType.DeleteItem;
 
 export type PermissionWithoutTarget = {
-	action: Exclude<PermType, Targeted>;
+	[PermType.Admin]: boolean;
+	[PermType.ViewGroupLog]: boolean;
+	[PermType.EditGroup]: boolean;
+	[PermType.EditContainer]: boolean;
+	[PermType.DeleteGroup]: boolean;
+	[PermType.DeleteContainer]: boolean;
+	[PermType.Invite]: boolean;
 }
 
 export type PermissionWithTarget = {
-	action: Targeted;
+	[PermType.ViewItemLog]: boolean;
+	[PermType.ViewContainerLog]: boolean;
+	[PermType.EditItem]: boolean;
+	[PermType.DeleteItem]: boolean;
 }
+
+/**
+ * Types used exclusively for making usre the map above is maintained properly
+ */
+
+type Test<T extends Exclude<PermType, Targeted>> = PermissionWithoutTarget[T];
+type Test2<T extends Targeted> = PermissionWithTarget[T];
 
 export type Permission = {
 	group: PermissionWithoutTarget[];
